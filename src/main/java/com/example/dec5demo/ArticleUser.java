@@ -6,8 +6,8 @@ public class ArticleUser {
     private int id;
     private String username;
     private String about;
-    private int submission_count;
-    private int comment_count;
+    private int submissionCount;
+    private int commentCount;
 
     // getter / setter
     public int getId() {
@@ -34,20 +34,20 @@ public class ArticleUser {
         this.about = about;
     }
 
-    public int getSubmission_count() {
-        return submission_count;
+    public int getSubmissionCount() {
+        return submissionCount;
     }
 
-    public void setSubmission_count(int submission_count) {
-        this.submission_count = submission_count;
+    public void setSubmissionCount(int submissionCount) {
+        this.submissionCount = submissionCount;
     }
 
-    public int getComment_count() {
-        return comment_count;
+    public int getCommentCount() {
+        return commentCount;
     }
 
-    public void setComment_count(int comment_count) {
-        this.comment_count = comment_count;
+    public void setCommentCount(int commentCount) {
+        this.commentCount = commentCount;
     }
 }
 

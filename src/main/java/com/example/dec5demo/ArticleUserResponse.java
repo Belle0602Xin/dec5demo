@@ -6,9 +6,9 @@ import java.util.List;
 public class ArticleUserResponse {
 
     private int page;
-    private int per_page;
+    private int perPage;
     private int total;
-    private int total_pages;
+    private int totalPages;
     private List<ArticleUser> data;
 
     public int getPage() {
@@ -19,12 +19,12 @@ public class ArticleUserResponse {
         this.page = page;
     }
 
-    public int getPer_page() {
-        return per_page;
+    public int getPerPage() {
+        return perPage;
     }
 
-    public void setPer_page(int per_page) {
-        this.per_page = per_page;
+    public void setPerPage(int perPage) {
+        this.perPage = perPage;
     }
 
     public int getTotal() {
@@ -35,12 +35,12 @@ public class ArticleUserResponse {
         this.total = total;
     }
 
-    public int getTotal_pages() {
-        return total_pages;
+    public int getTotalPages() {
+        return totalPages;
     }
 
-    public void setTotal_pages(int total_pages) {
-        this.total_pages = total_pages;
+    public void setTotalPages(int total_pages) {
+        this.totalPages = totalPages;
     }
 
     public List<ArticleUser> getData() {

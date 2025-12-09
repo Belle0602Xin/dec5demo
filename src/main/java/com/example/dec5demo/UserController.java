@@ -17,21 +17,19 @@ public class UserController {
     // 用来调外部接口
     private final RestTemplate restTemplate = new RestTemplate();
 
-    // 外部接口的基础 URL
-    private static final String BASE_URL =
-            "https://jsonmock.hackerrank.com/api/article_users";
+    // 外部接口的URL
+    private static final String BASE_URL = "https://jsonmock.hackerrank.com/api/article_users";
 
     // 根据 page 参数去请求外部接口 比如 https://jsonmock.hackerrank.com/api/article_users?page=2
     private ArticleUserResponse fetchPage(int page) {
         String url = BASE_URL + "?page=" + page;
+
         return restTemplate.getForObject(url, ArticleUserResponse.class);
     }
 
     // GET /users?page=c 只拿指定页的数据
     @GetMapping(params = "page")
     public List<ArticleUser> getUsersByPage(@RequestParam("page") int page) {
-
-        // 页码小于 1 就返回空
         if (page < 1) {
             return Collections.emptyList();
         }
@@ -61,11 +59,12 @@ public class UserController {
         // 把第一页的数据加进去
         result.addAll(firstPage.getData());
 
-        int totalPages = firstPage.getTotal_pages();
+        int totalPages = firstPage.getTotalPages();
 
-        // 再从第二页循环到最后一页
+        // 再从第二页回到最后一页
         for (int page = 2; page <= totalPages; page++) {
             ArticleUserResponse pageResp = fetchPage(page);
+
             if (pageResp != null && pageResp.getData() != null) {
                 result.addAll(pageResp.getData());
             }
